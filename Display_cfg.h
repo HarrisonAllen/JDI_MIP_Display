@@ -20,10 +20,10 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#define DISPLAY_WIDTH   400         // Display width in pixel
-#define DISPLAY_HEIGHT  240         // Display height in pixel
+#define DISPLAY_WIDTH   72         // Display width in pixel
+#define DISPLAY_HEIGHT  144         // Display height in pixel
 
-#define USE_ESP32_DMA  // 使用ESP32 DMA
+// #define USE_ESP32_DMA  // 使用ESP32 DMA
 #define DIFF_LINE_UPDATE   // 差异行更新
 
 //=================================================================
@@ -32,9 +32,19 @@
 
 #define SPI_FREQUENCY   4000000     // SPI frequency in Hz
 #define SPI_CHANNEL     spi0        // SPI channel number
-#define PIN_MISO        D9          // SPI Data Signal pin
-#define PIN_MOSI        D10         // SPI Data Signal pin
-#define PIN_SCK         D8          // SPI Clock Signal pin
-#define PIN_SCS         D7          // SPI Chip Select Signal pin
-#define PIN_DISP        D0          // Display ON/OFF Switching Signal pin
+
+// For nrf52840 Feather
+// #define PIN_MISO        24          // SPI Data Signal pin
+// #define PIN_MOSI        25         // SPI Data Signal pin
+// #define PIN_SCK         26          // SPI Clock Signal pin
+// #define PIN_SCS         5          // SPI Chip Select Signal pin
+// #define PIN_DISP        9          // Display ON/OFF Switching Signal pin
+// #define PIN_FRONTLIGHT  -1          // Frontlight pin. Optional depending on the display model
+
+// For nrf52840 ItsyBitsy
+#define PIN_MISO        23          // SPI Data Signal pin
+#define PIN_MOSI        24         // SPI Data Signal pin
+#define PIN_SCK         25          // SPI Clock Signal pin
+#define PIN_SCS         7          // SPI Chip Select Signal pin
+#define PIN_DISP        9          // Display ON/OFF Switching Signal pin
 #define PIN_FRONTLIGHT  -1          // Frontlight pin. Optional depending on the display model

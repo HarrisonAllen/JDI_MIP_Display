@@ -172,8 +172,28 @@ void JDI_MIP_Display::drawPixel(int16_t x, int16_t y, uint16_t color)
     if(x < 0 || x >= width() || y < 0 || y >= height()){
         return;
     }
+    int16_t t;
+    switch (rotation)
+    {
+    case 1:
+        t = x;
+        x = WIDTH - 1 - y;
+        y = t;
+        break;
+    case 2:
+        x = WIDTH - 1 - x;
+        y = HEIGHT - 1 - y;
+        break;
+    case 3:
+        t = x;
+        x = y;
+        y = HEIGHT - 1 - t;
+        break;
+    default:
+        break;
+    }
 
-    int pixelIdx = ((width() / 2) * y) + (x / 2);
+    int pixelIdx = ((WIDTH / 2) * y) + (x / 2);
 
     if(x % 2 == 0){
         _backBuffer[pixelIdx] &= 0x0F;
